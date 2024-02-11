@@ -120,11 +120,7 @@
         let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
         fetch(url).then(res => res.json()).then(data => {
             let temp = data['temp'];
-            if (temp > 20) {
-                $('#msg').text('더워요');
-            }else {
-                $('#msg').text('추워요');
-            }
+            $('#msg').text(temp);
         })
 
         let docs = await getDocs(collection(db, "bellareta"));
@@ -158,7 +154,7 @@
 <body>
     <div class="mytitle">
         <h1>나만의 플레이 리스트</h1>
-        <p>현재 서울의 날씨 : <span id="msg">좋음</span></p>
+        <p>현재 서울의 날씨 : <span id="msg">나쁨</span></p>
         <button id="savebtn">영상 저장하기</button>
     </div>
     <div class="mypostingbox" id="postingbox">
